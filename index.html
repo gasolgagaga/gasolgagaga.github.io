@@ -1,2 +1,145 @@
-加索尔加加加
-兴趣使然的 无名小站
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>实验五</title>
+	</head>
+	<style type="text/css">
+		body,html{
+			width: 100%;
+			height: 100%;
+		}
+		.box{
+			width: 500px;
+			margin: 0 auto;
+			border:1px solid black;
+		}
+		.error{
+			color: red;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			mabeyCityList=[
+				['请先选择省份'],
+				['请先选择省份','芗城区','漳浦','龙海'],
+				['请先选择省份','湖里','集美','思明'],
+				['请先选择省份','晋江','泉州','石狮'],
+			]
+			cityList=[]
+			errorList = [0,0,0,0,0,0]
+			function ID(X){
+				return document.getElementById(X);
+			}
+			ID('uname').onblur=function(){
+				if(this.value.length<6){
+					ID('unameError').style.display='inline';
+				}else{
+					errorList[0]=1;
+					ID('unameError').style.display='none';
+				}
+			}
+			ID('password').onblur=function(){	
+				if(this.value.length<6){
+					ID('passwordError').style.display='inline';
+				}else{
+					errorList[1]=1
+					ID('passwordError').style.display='none';
+				}
+			}
+			ID('passwordTrue').onblur=function(){	
+				if(this.value!=ID('password').value){
+					ID('passwordTrueError').style.display='inline';
+				}else{
+					errorList[2]=1
+					ID('passwordTrueError').style.display='none';
+				}
+			}
+			ID('email').onblur=function(){
+				errorList[3]=1
+			}
+			ID('sf').onchange=function(){
+				errorList[4]=1
+				console.log(this.selectedIndex)
+				cityList=mabeyCityList[this.selectedIndex]
+				console.log(cityList)
+				main()
+			}
+			ID('city').onchange=function(){
+				errorList[5]=1
+			}
+			function main(){
+				console.log(ID('city').options)
+				ID('city').length=0;
+				for (let i in cityList) {
+					var child = document.createElement('option');
+					child.value=cityList[i];
+					child.innerHTML=cityList[i];
+					ID('city').appendChild(child)
+				}
+			}
+//			function changeSubmit(){
+//				if(errorList.indexOf(0)!=-1){
+//					ID('submit').setAttribute('disabled')=false
+//				}else{
+//					ID('submit').setAttribute('disabled')=true
+//				}
+//			}
+			ID('submit').onclick=function(){
+				if(errorList.indexOf(0)!=-1){
+					alert('有选项为空请重选选择!')
+					return false
+				}
+				alert('成功提交')
+				return true
+			}
+			
+		}
+	</script>
+	<body>
+		<div class="box">
+			<form  id='form' action="#" method="get">
+				<label for="uname">
+					用户名：
+					<input type="text" name="uname" id="uname" />
+					<span id="unameError" class="error">用户名必须大于六位数</span>
+					<br />
+				</label>
+				<label for="password">
+					密码：
+					<input type="password" name="password" id="password" />
+					<span id="passwordError" class="error">密码必须大于六位数</span>
+					<br />
+				</label>
+				<label for="passwordTrue">
+					确认密码：
+					<input type="password" name="passwordTrue" id="passwordTrue" />
+					<span id="passwordTrueError" class="error">两次输入密码不一致</span>
+					<br />
+				</label>
+				<label for="email">
+					邮箱：
+					<input type="email" name="email" id="email" />
+					<br />
+				</label>
+				<label for="sf">
+					籍贯：
+					<select type="text" name="sf" id="sf" >
+						<option value="0">请选择省份</option>	
+						<option value="1">漳州</option>	
+						<option value="2">厦门</option>	
+						<option value="3">泉州</option>	
+					</select>
+					<select type="text" name="city" id="city" >
+						<option value="0">请选择省份</option>
+					</select>
+					<br />
+				</label>
+				<label>
+					<input type="submit" id="submit"　value="submit" />
+				</label>
+			</form>
+		</div>
+	</body>
+</html>
