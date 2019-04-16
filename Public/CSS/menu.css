@@ -4,11 +4,11 @@
 	-o-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
-	background-repeat: repeat;
+	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center center;
 	background-image: url(../Image/bg.jpg);
-	font-size: 14px;
+	font-size: 20px;
 	page-break-before: auto;
 	page-break-after: auto;
 	cursor: auto;
@@ -107,13 +107,13 @@ b {
 }
 
 .top_hr_style01 {
-	width: 60%;
+	width: 80%;
 	margin: 5px auto;
 	border: 0;
 	border-bottom: 1px solid #fff
 }
 .top_hr_style02 {
-	width: 80%;
+	width: 60%;
 	margin: 5px auto;
 	border: 0;
 	border-bottom: 1px solid #fff
@@ -176,7 +176,7 @@ b {
 
 #top_title {
 	text-align: center;
-	padding-top: 15px;
+	padding-top: 80px;
 	display: block;
 	height: 10%;
 	font-size: 12px;
@@ -189,20 +189,20 @@ b {
 }
 
 #top_title #top_title01 {
-	height: 83%;
-	max-height: 59px;
+	height: 65%;
+	max-height: 75px;
 	min-height: 30px
 }
 
 #top_title #top_title02 {
-	height: 17%;
+	height: 20%;
 	max-height: 11px;
 	min-height: 7px
 }
 
 #top_navlist {
 	display: block;
-	width: 30%;
+	width: 40%;
 	height: 220px;
 	max-width: 220px;
 	margin-left: auto;
@@ -221,11 +221,11 @@ b {
 .top_nav {
 	display: block;
 	width: 100%;
-	max-height: 40px;
+	max-height: 100px;
 	min-height: 10px;
 	margin-top: 15px;
 	text-decoration: none;
-	font-size: 90%;
+	font-size: 200%;
 	vertical-align: middle ;
 	color: #fff;
 	letter-spacing: .5px;
@@ -266,6 +266,10 @@ b {
 	font-size: 10px;
 	letter-spacing: 1.5px;
 	text-align: center
+}
+
+.top_copyright_fontsize{
+	font-size: 13px;
 }
 
 @media screen and (max-width:500px) {
