@@ -4,10 +4,10 @@
 	-o-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
-	background-repeat: no-repeat;
+	background-repeat:repeat;
 	background-attachment: fixed;
 	background-position: center center;
-	background-image: url(../Image/bg.jpg);
+
 	font-size: 20px;
 	page-break-before: auto;
 	page-break-after: auto;
@@ -244,7 +244,7 @@ b {
 
 #top_footer {
 	padding: 4px 10px 4px 10px;
-	background-color: #04202c;
+	background-color: #121925;
 	position: fixed;
 	bottom: 0;
 	left: 0;
