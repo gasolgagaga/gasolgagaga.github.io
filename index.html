@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html >
 <head>
 <meta charset="UTF-8">
 <link href="Public/CSS/menu.css" rel="stylesheet" type="text/css">
@@ -9,6 +9,7 @@
 
 
 <body>
+<canvas id="canvas" style="position: absolute;z-index: -1;pointer-events: none"></canvas>
 <div id="top">
     <div id="top_img">
         <main id="top_main">
@@ -52,6 +53,70 @@
         </div>
     </div>
 </div>
+<script src="Public/JavaScript/underscore.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    //设置画布
+    const canvas=document.getElementById("canvas");
+    const ctx=canvas.getContext('2d');
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+
+    //小球类
+    class Ball{
+        constructor(x,y,color){
+            this.x=x;
+            this.y=y;
+            this.color=color;
+            this.r=30;
+        }
+        //绘制小球
+        render(){
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(this.x,this.y,this.r,0,Math.PI * 2);
+            ctx.fillStyle=this.color;
+            ctx.fill();
+            ctx.restore();
+        }
+    }
+
+    //会移动的小球类
+    class MoveBall extends Ball{
+        constructor(x,y,color){
+            super(x,y,color);
+
+            //量的变化
+            this.dX=_.random(-2,2);
+            this.dY=_.random(-2,2);
+            this.dR=_.random(1,3);
+        }
+
+        upDate(){
+            this.x += this.dX;
+            this.y += this.dY;
+            this.r -= this.dR;
+            if (this.r < 0) {
+                this.r = 0;
+            }
+        }
+    }
+
+    let ballArr=[];
+    let colorArr=['red'];
+
+    ballArr.push(new MoveBall(1000,1000,colorArr[_.random(0,colorArr.length-1)]));
+
+
+    setInterval(function(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+
+        for (let i=0;i<ballArr.length;i++) {
+            ballArr[i].render();
+            ballArr[i].upDate();
+        }
+    },50);
+</script>
+
 
 
 </body>
