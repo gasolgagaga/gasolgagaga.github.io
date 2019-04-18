@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link href="../Public/CSS/menu.css" rel="stylesheet" type="text/css" />
+    <title>Title</title>
+  </head>
+  <body>
+      <canvas
+      id="canvas"
+      style="position: absolute;z-index: -1;pointer-events: none"
+    ></canvas>
+    <div id="top">
+      <div id="top_title">
+        <img class="top_sponsor" src="../Public/Image/Sponsor.jpg " />
+        <div>
+          <hr class="top_hr_style01" />
+          <div id="top_description">
+            <font>
+              COME HERE TO ENJOY YOU DOUBLE HAPPINESS<br />
+              WE ARE WAITING FOR YOU AND YOUR GENEROUS SPONSOR!
+            </font>
+          </div>
+          <hr class="top_hr_style01" />
+        </div>
+        <ul id="top_navlist">
+          <a class="top_nav" >
+            <li>
+              <font>THANKS FOR YOU</font>
+            </li>
+          </a>
+          <a class="top_nav" href="../index.html">
+            <li>
+              <font>MENU</font>
+            </li>
+          </a>
+        </ul>
+      </div>
+      <div id="top_footer">
+        <span id="top_copyright">
+          <hr class="top_hr_style02" />
+          <font class="top_copyright_fontsize"
+            >IF YOU WANT TO JOING US , PLEASE CONTACT US ASS SOON AS POSSIBLE
+          </font>
+          <hr class="top_hr_style02" />
+          <font class="top_copyright_fontsize"
+            >TELEPHONE : 18150377235 &nbsp;&nbsp;&nbsp;&nbsp; E-MAIL :
+            542825821@qq.com</font
+          >
+        </span>
+      </div>
+    </div>
+
+    <script
+    src="../Public/JavaScript/underscore.js"
+    type="text/JAVASCRIPT"
+    charset="utf-8"
+  ></script>
+  <script type="text/javascript">
+    //设置画布
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+
+    //小球类
+    class Ball {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.r = 35;
+      }
+      //绘制小球
+      render() {
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    //会移动的小球类
+    class MoveBall extends Ball {
+      constructor(x, y, color) {
+        super(x, y, color);
+
+        //量的变化
+        this.dX = _.random(-20, 20);
+        this.dY = _.random(-60, 0);
+        this.dR = _.random(0.8, 10);
+      }
+
+      upDate() {
+        this.x += this.dX;
+        this.y += this.dY;
+        this.r -= this.dR;
+        if (this.r < 0) {
+          this.r = 0;
+        }
+      }
+    }
+
+    let ballArr = [];
+    let colorArr = ["white"];
+
+    
+
+    setInterval(function() {
+      ballArr.push(
+      new MoveBall(innerWidth * 0.2, innerHeight+100, colorArr[_.random(0, colorArr.length - 1)])
+    )
+    ballArr.push(
+      new MoveBall(innerWidth * 0.8, innerHeight+100, colorArr[_.random(0, colorArr.length - 1)])
+    )
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = 0; i < ballArr.length; i++) {
+        ballArr[i].render();
+        ballArr[i].upDate();
+      }
+    }, 35);
+  </script>
+  </body>
+</html>
