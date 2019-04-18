@@ -32,6 +32,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 	display: block
 }
 
+
 blockquote,q {
 	quotes: none
 }
@@ -126,7 +127,6 @@ b {
 	height: 100%;
 	position: absolute;
 	margin: auto;
-	z-index:9999
 }
 
 
@@ -136,6 +136,17 @@ b {
 	position: relative;
 	margin: 0 auto;
 	padding: 40px 0 10px 0
+}
+
+#top_description{
+	color: #ffffff;
+	margin-top: 25px;
+	margin-bottom: 10px;
+	margin-left: 20%;
+	margin-right: 20%;
+	height: 30%;
+	min-height: 80px;
+	max-height: 244px;
 }
 
 #top_logo {
@@ -187,6 +198,13 @@ b {
 	margin-right: auto;
 	margin-left: auto;
 	display: block
+}
+
+.top_sponsor{
+	margin-top: 200px;
+	margin-bottom: 100px;
+	height: 300px;
+	width: 300px;
 }
 
 #top_title #top_title01 {

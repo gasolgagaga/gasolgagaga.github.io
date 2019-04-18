@@ -1,124 +1,129 @@
 <!DOCTYPE html>
-<html >
-<head>
-<meta charset="UTF-8">
-<link href="Public/CSS/menu.css" rel="stylesheet" type="text/css">
-<title>加索尔加加加★快乐小站</title>
-
-</head>
-
-
-<body>
-<canvas id="canvas" style="position: absolute;z-index: -1;pointer-events: none"></canvas>
-<div id="top">
-    <div id="top_img">
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link href="Public/CSS/menu.css" rel="stylesheet" type="text/css" />
+    <title>加索尔加加加★快乐小站</title>
+  </head>
+  <body>
+    <canvas
+      id="canvas"
+      style="position: absolute;z-index: -1;pointer-events: none"
+    ></canvas>
+    <div id="top">
+      <div id="top_img">
         <main id="top_main">
-            <div id="top_logo">
-                <img src="Public/Image/toplogo.png" />
-            </div>
-            <div id="top_title">
-                <img id="top_title01" src="Public/Image/toptitle_1.png" />
-                <hr class="top_hr_style01">
-                <ul id="top_navlist">
-                    <a class="top_nav" href="Mode_A/Page_1.html">
-                        <li>
-                            <font>NEWS</font>
-                        </li>
-                    </a>
-                    <a class="top_nav" href="Mode_A/Page_1.html">
-                        <li>
-                            <font>ANIME</font>
-                        </li>
-                    </a>
-                    <a class="top_nav" href="Mode_A/Page_1.html">
-                        <li>
-                            <font>GAME</font>
-                        </li>
-                    </a>
-                    <a class="top_nav" href="Mode_A/Page_1.html">
-                        <li>
-                            <font>倍の快楽</font>
-                        </li>
-                    </a>
-                </ul></ul>
-            </div>
+          <div id="top_logo">
+            <img src="Public/Image/toplogo.png" />
+          </div>
+          <div id="top_title">
+            <img id="top_title01" src="Public/Image/toptitle_1.png" />
+            <hr class="top_hr_style01" />
+            <ul id="top_navlist">
+              <a class="top_nav" href="Mode_A/Page_1.html">
+                <li>
+                  <font>NEWS</font>
+                </li>
+              </a>
+              <a class="top_nav" href="Mode_A/Page_1.html">
+                <li>
+                  <font>ANIME</font>
+                </li>
+              </a>
+              <a class="top_nav" href="Mode_A/Page_1.html">
+                <li>
+                  <font>GAME</font>
+                </li>
+              </a>
+              <a class="top_nav" href="Mode_A/Page_1.html">
+                <li>
+                  <font>倍の快楽</font>
+                </li>
+              </a>
+            </ul>
+          </div>
         </main>
         <div id="top_footer">
-            <span id="top_copyright">
-                <hr class="top_hr_style02">
-                <font class="top_copyright_fontsize">加索尔加加加-------兴趣使然的无名小站，双倍快乐(◐‿ฺ◑)</font>
-                <hr class="top_hr_style02">
-                <font class="top_copyright_fontsize" >版权©2018-2020 Gasolgagaga保留所有权利。</font>
-            </span>
+          <span id="top_copyright">
+            <hr class="top_hr_style02" />
+            <font class="top_copyright_fontsize"
+              >加索尔加加加-------兴趣使然的无名小站，双倍快乐(◐‿ฺ◑)</font
+            >
+            <hr class="top_hr_style02" />
+            <font class="top_copyright_fontsize"
+              >版权©2018-2020 Gasolgagaga保留所有权利。</font
+            >
+          </span>
         </div>
+      </div>
     </div>
-</div>
-<script src="Public/JavaScript/underscore.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript">
-    //设置画布
-    const canvas=document.getElementById("canvas");
-    const ctx=canvas.getContext('2d');
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
+    <script
+      src="Public/JavaScript/underscore.js"
+      type="text/JAVASCRIPT"
+      charset="utf-8"
+    ></script>
+    <script type="text/javascript">
+      //设置画布
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = innerWidth;
+      canvas.height = innerHeight;
 
-    //小球类
-    class Ball{
-        constructor(x,y,color){
-            this.x=x;
-            this.y=y;
-            this.color=color;
-            this.r=30;
+      //小球类
+      class Ball {
+        constructor(x, y, color) {
+          this.x = x;
+          this.y = y;
+          this.color = color;
+          this.r = 30;
         }
         //绘制小球
-        render(){
-            ctx.save();
-            ctx.beginPath();
-            ctx.arc(this.x,this.y,this.r,0,Math.PI * 2);
-            ctx.fillStyle=this.color;
-            ctx.fill();
-            ctx.restore();
+        render() {
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.fill();
+          ctx.restore();
         }
-    }
+      }
 
-    //会移动的小球类
-    class MoveBall extends Ball{
-        constructor(x,y,color){
-            super(x,y,color);
+      //会移动的小球类
+      class MoveBall extends Ball {
+        constructor(x, y, color) {
+          super(x, y, color);
 
-            //量的变化
-            this.dX=_.random(-2,2);
-            this.dY=_.random(-2,2);
-            this.dR=_.random(1,3);
+          //量的变化
+          this.dX = _.random(-2, 2);
+          this.dY = _.random(-2, 2);
+          this.dR = _.random(1, 3);
         }
 
-        upDate(){
-            this.x += this.dX;
-            this.y += this.dY;
-            this.r -= this.dR;
-            if (this.r < 0) {
-                this.r = 0;
-            }
+        upDate() {
+          this.x += this.dX;
+          this.y += this.dY;
+          this.r -= this.dR;
+          if (this.r < 0) {
+            this.r = 0;
+          }
         }
-    }
+      }
 
-    let ballArr=[];
-    let colorArr=['red'];
+      let ballArr = [];
+      let colorArr = ["red"];
 
-    ballArr.push(new MoveBall(1000,1000,colorArr[_.random(0,colorArr.length-1)]));
+      ballArr.push(
+        new MoveBall(1000, 1000, colorArr[_.random(0, colorArr.length - 1)])
+      );
 
+      setInterval(function() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    setInterval(function(){
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-
-        for (let i=0;i<ballArr.length;i++) {
-            ballArr[i].render();
-            ballArr[i].upDate();
+        for (let i = 0; i < ballArr.length; i++) {
+          ballArr[i].render();
+          ballArr[i].upDate();
         }
-    },50);
-</script>
-
-
-
-</body>
-
+      }, 50);
+    </script>
+  </body>
 </html>
