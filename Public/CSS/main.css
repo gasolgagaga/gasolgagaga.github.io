@@ -1,5 +1,5 @@
-*{
-    cursor: url("../Image/cursor.ico"),auto;
+* {
+  cursor: url("../Image/cursor.ico"), auto;
 }
 a {
   color: #04202c;
@@ -19,11 +19,10 @@ ul {
   max-width: 1248px;
   margin: 2em auto;
   border-radius: 25px;
-  line-height: 20px;
 }
 body {
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 4%;
+  margin-right: 4%;
   background-color: #121925;
 }
 #branding {
@@ -63,7 +62,7 @@ body {
 
 #access_navlist {
   padding: 0;
-  width: 400px;  
+  width: 400px;
   height: 50px;
   margin: 0% auto;
 }
@@ -79,4 +78,132 @@ body {
 .access_nav:hover {
   border-radius: 10px;
   background-color: #fff;
+}
+
+#conten {
+  position: relative;
+  float: left;
+  width: 75%;
+}
+
+.entry {
+  position: relative;
+  width: 80%;
+  margin: 100px auto;
+}
+.entry_hr {
+  width: 100%;
+  margin: 20px auto;
+  border: 0;
+  border-bottom: 1px solid #858585;
+}
+.entry_title a {
+  color: #ffffff;
+}
+.entry_title a:hover {
+  color: #00b3ba;
+}
+.entry_meta {
+  color: #858585;
+  font-size: 10px;
+}
+.entry_meta a {
+  color: #0da1e0;
+}
+.entry_meta a:hover {
+  text-decoration: underline;
+}
+.entry_conten img {
+  border: solid 2px #858585;
+  border-radius: 15px;
+  width: 100%;
+  height: auto;
+}
+.entry_conten {
+  font-size: 14px;
+  line-height: 25px;
+  color: #858585;
+}
+.more_link {
+  color: #0da1e0;
+}
+.more_link:hover {
+  color: #0da1e0;
+  text-decoration: underline;
+}
+.all{
+  color: #fff;
+}
+#secondary {
+  position: relative;
+  width: 25%;
+  height: 100%;
+  float: left;
+}
+.widget_text {
+  color: #858585;
+  font-size: 14px;
+  margin-top: 100px;
+  margin-right: 70px;
+}
+.widget_title{
+  margin-top: 40px;
+  color: #fff;
+}
+.widget_rating ul{
+  margin-right: 70px;
+  padding: 0;
+}
+.widget_rating li{
+  margin: 10px auto;
+}
+.widget_rating a{
+  color: #0da1e0;
+  font-size: 14px;
+}
+.widget_rating a:hover{
+  text-decoration: underline;
+}
+.widget_slider{
+  margin-top: 40px;
+  margin-right: 70px;
+}
+#menu_bottom{
+  color: #858585;
+  text-align: center;
+}
+#menu_bottom a{
+  margin-left: 5px;
+  color: #0da1e0;
+}
+#menu_bottom a:hover{
+  color: #fff;
+}
+#colophon{
+  color: #858585;
+  font-size: 8px;
+  padding: 40px;
+}
+@media screen and (max-width: 1150px) {
+  .widget_rating a{
+    color: #0da1e0;
+    font-size: 4px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  #conten {
+    position: relative;
+    width: 100%;
+  }
+
+  #secondary {
+    z-index: -1;
+    position: absolute;
+    font-size: 0;
+    width: 0%;
+  }
+  .widget_rating a{
+    color: #0da1e0;
+    font-size: 0px;
+  }
 }
