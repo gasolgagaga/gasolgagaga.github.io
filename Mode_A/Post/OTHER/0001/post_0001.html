@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      #div1 {
+        width: 100%;
+        height: 400px;
+        padding: 10px;
+        border: 1px solid #aaaaaa;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <link
+      href="../../../../Public/CSS/post.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="../../../../Public/CSS/index.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="page" class="hfeed">
+      <header id="branding" role="banner">
+        <hgroup>
+          <h1 id="site_title">
+            <span>
+              <font>加索尔 ★ 加加加</font>
+            </span>
+          </h1>
+          <h2 id="site_description">
+            加索尔加加加，在这里分享双倍快乐。
+          </h2>
+        </hgroup>
+        <div id="title_img">
+          <img src="../../../../Public/Image/Slide/slide_1.jpg" />
+        </div>
+        <hr class="top_hr_style01" />
+        <div id="access">
+          <ul id="access_navlist">
+            <a class="access_nav" href="../../../News.html">
+              <li>
+                <font>NEWS</font>
+              </li>
+            </a>
+            <a class="access_nav" href="../../../ANIME.html">
+              <li>
+                <font>ANIME</font>
+              </li>
+            </a>
+            <a class="access_nav" href="../../../GAME.html">
+              <li>
+                <font>GAME</font>
+              </li>
+            </a>
+            <a class="access_nav" href="../../../Sponor.html">
+              <li>
+                <font>倍の快楽</font>
+              </li>
+            </a>
+          </ul>
+        </div>
+        <hr class="top_hr_style02" />
+      </header>
+      <div id="main">
+        <article class="entry">
+          <header class="entry_header">
+            <h1 class="entry_title">
+              <a href="">个人简介</a>
+            </h1>
+            <div class="entry_meta">
+              <span class="sep"
+                >发表于
+                <a href="">
+                  <time datetime="2019-04-21">2019年3月5日</time>
+                </a>
+              </span>
+            </div>
+          </header>
+          <div class="entry_conten">
+            <br />
+            <img src="../../../../Public/Image/Slide/slide_1.jpg" />
+            <p>
+              本人是一名厦门软件职业技术学院的在校准大四学生。本人的兴趣就是在家里看看动漫，出于兴趣和期末要求制作了这个网站。
+              虽然说要突出个人的项目经验，但是这就是我的第一个网页项目
+              实在是没有什么经验可言。所以接下来的内容就是我和大家分享一下在这学期在学校学习到的知识应用。
+            </p>
+            <h1 class="entry_title">
+              <a href="">新表单元素收集数据</a>
+            </h1>
+            <form style="color: aqua" action="0002.html" method="get">
+                E-mail: <input type="email" name="user_email" /><br><br>
+              Username: <input type="text" name="usr_name" /><br><br>
+              Homepage: <input type="url" name="user_url" /><br><br>
+              Points: <input type="number" name="points" min="1" max="10" /><br><br>
+              Encryption: <keygen name="security" />
+              <input type="submit" />
+              </form>
+            <h1 class="entry_title">
+              <a href="">元素拖拽</a>
+            </h1>
+            <p>请把 W3School 的图片拖放到矩形中：</p>
+            <div
+              id="div1"
+              ondrop="drop(event)"
+              ondragover="allowDrop(event)"
+            ></div>
+            <br />
+            <img
+              id="drag1"
+              src="../../../../Public/Image/toptitle_1.png"
+              draggable="true"
+              ondragstart="drag(event)"
+            />
+            <h1 class="entry_title">
+              <a href="">绘制图像与动画</a>
+            </h1>
+            <p>首页就是了</p>
+            <h1 class="entry_title">
+              <a href="">HTML5储存</a>
+            </h1>
+            <p>
+              用了sessionStorage储存，每刷新一次页面数字就会增加，关闭浏览器后数字清零
+            </p>
+            <p id="save"></p>
+            <br />
+            <h1 class="entry_title">
+              <a href="">离线应用和地理位置应用</a>
+            </h1>
+            <p id="demo">点击这个链接，获得您的坐标：</p>
+            <a style="color:aqua" onclick="getLocation()">试一下</a>
+          </div>
+          <h1 class="entry_title">
+              <a href="">以上我的项目就包含了所有要求应用到的知识点了</a>
+            </h1>
+        </article>
+      </div>
+      <div style="clear:both"></div>
+      <footer id="colophon" role="contentinfo">
+        <center>
+          Power by GASOLGAGAGA Copyright © 2018-2020 加索尔加加加 All Rights
+          Reserved
+        </center>
+      </footer>
+    </div>
+    <script>
+      var x = document.getElementById("demo");
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+      function showPosition(position) {
+        x.innerHTML =
+          "Latitude: " +
+          position.coords.latitude +
+          "<br />Longitude: " +
+          position.coords.longitude;
+      }
+      function showError(error) {
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation.";
+            break;
+          case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable.";
+            break;
+          case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out.";
+            break;
+          case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred.";
+            break;
+        }
+      }
+    </script>
+    <script type="text/javascript">
+      if (sessionStorage.pagecount) {
+        sessionStorage.pagecount = Number(sessionStorage.pagecount) + 1;
+      } else {
+        sessionStorage.pagecount = 1;
+      }
+      document.getElementById("save").textContent =
+        "刷新了" + sessionStorage.pagecount + "次";
+    </script>
+    <script type="text/javascript">
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
+
+      function drag(ev) {
+        ev.dataTransfer.setData("Text", ev.target.id);
+      }
+
+      function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("Text");
+        ev.target.appendChild(document.getElementById(data));
+      }
+    </script>
+  </body>
+</html>
