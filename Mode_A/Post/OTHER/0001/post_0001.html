@@ -83,11 +83,60 @@
           <div class="entry_conten">
             <br />
             <img src="../../../../Public/Image/Slide/slide_1.jpg" />
-            <p>
-              本人是一名厦门软件职业技术学院的在校准大四学生。本人的兴趣就是在家里看看动漫，出于兴趣和期末要求制作了这个网站。
+            <p>              
               虽然说要突出个人的项目经验，但是这就是我的第一个网页项目
               实在是没有什么经验可言。所以接下来的内容就是我和大家分享一下在这学期在学校学习到的知识应用。
-            </p>
+            </p>  
+            <h1 class="entry_title">
+              <a href="">个人简历</a>
+            </h1>            
+            <table border=5  style="background-color: white " bordercolor=black cellspacing=0 align=center>
+  <tr height=120  align=center>
+  <td width=960 colspan=10 align=center><font face=微软雅黑 size=7><b>个人简历</b></font></td></tr>
+  
+  <tr height=60  align=center>
+  <td width=120 colspan=2 align=center><font face=微软雅黑 size=6><b>姓名</b></font></td>
+  <td width=120 colspan=2 align=center><font face=华文行楷 size=6>夏泓</font></td>
+  <td width=120 colspan=2 align=center><font face=微软雅黑 size=6><b>性别</b></font></td>
+  <td width=120 colspan=2 align=center><font face=华文行楷 size=6>男</font></td>
+  <td width=180  rowspan=4
+  ><font size=5><img  border=0 src=0003.jpg alt="Eternally" width="180" height="240"></td></tr>
+  
+  <tr height=60  align=center>
+  <td width=120 colspan=2 align=center><font face=微软雅黑 size=6><b>出生年月</b></font></td>
+  <td width=120 colspan=2 align=center><font face=华文行楷 size=6>1998.6.17</font></td>
+  <td width=120 colspan=2 align=center><font face=微软雅黑 size=6><b>民族</b></font></td>
+  <td width=120 colspan=2 align=center><font face=华文行楷 size=6>汉</font></td>
+  </tr>
+  
+  <tr height=60  align=center>
+  <td width=120 colspan=2 align=center><font face=微软雅黑 size=6><b>学历</b></font></td>
+  <td width=120 colspan=2 align=center><font face=华文行楷 size=6>本科</font></td>
+  <td width=120 colspan=2 align=center><font face=微软雅黑 size=6><b>专业</b></font></td>
+  <td width=120 colspan=2 align=center><font face=华文行楷 size=6>软件工程</font></td>
+  </tr>  
+  <tr height=60  align=center>
+  <td width=120 colspan=2 align=center><font face=微软雅黑 size=6><b>籍贯</b></font></td>
+  <td width=120 colspan=2 align=center><font face=华文行楷 size=6>江苏</font></td>
+  <td width=120 colspan=2 align=center><font face=微软雅黑 size=6><b>联系电话</b></font></td>
+  <td width=120 colspan=2 align=center><font face=华文行楷 size=6>18150377235</font></td>
+  </tr>
+  
+  <tr height=60  align=center>
+  <td width=120  colspan=2 align=center><font face=微软雅黑 size=6><b>毕业学校</b></font></td>
+  <td width=120 colspan=8 align=center><font face=华文行楷 size=6>厦门理工学院</font></td>
+  </tr> 
+  <tr height=60  align=center>
+  <td width=120  colspan=2 align=center><font face=微软雅黑 size=6><b>邮箱</b></font></td>
+  <td width=120 colspan=8 align=center><font face=华文行楷 size=6><pre>542825821@qq.com</pre></font></td>
+  </tr>
+  
+  <tr height=150  align=center>
+  <td width=120 colspan=2 align=center><font face=微软雅黑  size=6><b>社会实践</b></font></td>
+  <td width=840  colspan=8><font face=华文行楷 size=6>
+  </font></td></tr>
+</td></tr>
+            </table>
             <h1 class="entry_title">
               <a href="">新表单元素收集数据</a>
             </h1>
@@ -123,6 +172,10 @@
               <a href="">HTML5储存</a>
             </h1>
             <p>
+              用了localStorage储存，每刷新一次页面数字就会增加，关闭浏览器后数字不会清零
+            </p>
+            <p id="save2"></p>
+            <p>
               用了sessionStorage储存，每刷新一次页面数字就会增加，关闭浏览器后数字清零
             </p>
             <p id="save"></p>
@@ -130,6 +183,7 @@
             <h1 class="entry_title">
               <a href="">离线应用和地理位置应用</a>
             </h1>
+            <p>首页使用了离线应用</p>
             <p id="demo">点击这个链接，获得您的坐标：</p>
             <a style="color:aqua" onclick="getLocation()">试一下</a>
           </div>
@@ -146,6 +200,20 @@
         </center>
       </footer>
     </div>
+    <script type="text/javascript">
+
+      if (localStorage.pagecount)
+        {
+        localStorage.pagecount=Number(localStorage.pagecount) +1;
+        }
+      else
+        {
+        localStorage.pagecount=1;
+        }
+      document.getElementById("save2").textContent = "刷新了 " + localStorage.pagecount + "次";
+      
+      </script> 
+      
     <script>
       var x = document.getElementById("demo");
       function getLocation() {
